@@ -8,9 +8,17 @@ const Quill = () => {
 	const dispatch = useAppDispatch();
 
 	const [content, setContent] = useState("");
-	const [tags, setTags] = useState([]);
+	const [tags, setTags] = useState("");
 	const [title, setTitle] = useState("");
-	console.log(content);
+
+	const CreatePostHandler = () => {
+		const post = { content, tags: tags.split(","), title };
+		dispatch(createPost(post));
+		setContent("");
+		setTags("");
+		setTitle("");
+	};
+
 	const modules = {
 		toolbar: [
 			[{ header: [1, 2, 3, false] }],
@@ -39,12 +47,6 @@ const Quill = () => {
 		"image",
 	];
 
-	const CreatePostHandler = () => {
-		const post = { content, tags, title };
-		dispatch(createPost(post));
-		setContent("");
-		setTags([]);
-	};
 	return (
 		<>
 			<input
@@ -55,7 +57,7 @@ const Quill = () => {
 			<input
 				type="text"
 				placeholder="Tags....separate tags with a comma "
-				onChange={(e) => setTags([e.target.value])}
+				onChange={(e) => setTags(e.target.value)}
 			/>
 
 			<ReactQuill

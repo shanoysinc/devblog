@@ -5,7 +5,7 @@ import Posts from "../components/sidebar/Posts";
 import Panel from "../components/sidebar/Panel";
 import NavBar from "../components/header/NavBar";
 export default function Home() {
-	const [currentPostId, setCurrentPostId] = useState("");
+	const [currentPostId, setCurrentPostId] = useState(null);
 
 	return (
 		<div>

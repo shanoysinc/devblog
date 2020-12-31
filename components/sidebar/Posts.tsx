@@ -2,17 +2,24 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../pages/_app";
 import { fetchAllPost } from "../../features/post/AsyncActions";
+import axios from "axios";
+import useSWR from "swr";
 
 interface Props {
 	setCurrentPostId: React.Dispatch<React.SetStateAction<string>>;
 }
+const url = "http://localhost:3000/api/blog";
+const fetcher = (url) => axios.get(url).then((res) => res.data.posts);
+
 const Posts = ({ setCurrentPostId }: Props) => {
 	const dispatch = useAppDispatch();
+	const { data } = useSWR(url, fetcher);
+
 	const posts = useSelector((state: RootState) => state.posts);
 
 	useEffect(() => {
-		dispatch(fetchAllPost());
-	}, [dispatch]);
+		dispatch(fetchAllPost(data));
+	}, [data]);
 
 	return (
 		<div>

@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../pages/_app";
-import { fetchAllPost } from "../../features/post/postSlice";
+import { fetchAllPost } from "../../features/post/AsyncActions";
+
 const Posts = () => {
 	const dispatch = useAppDispatch();
 	const posts = useSelector((state: RootState) => state.posts);

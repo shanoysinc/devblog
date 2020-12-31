@@ -22,8 +22,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			break;
 		case "POST":
 			try {
-				const content = req.body;
-				const newPost = new Post(content);
+				const post = req.body;
+				console.log(post);
+
+				const newPost = new Post(post);
 				await newPost.save();
 
 				res.json({ post: newPost });

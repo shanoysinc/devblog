@@ -22,10 +22,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			break;
 		case "PATCH":
 			try {
-				const content = req.body;
+				const post = req.body;
 				const updatedPost = await Post.findOneAndUpdate(
 					{ _id: id },
-					content,
+					post,
 					{ new: true }
 				);
 

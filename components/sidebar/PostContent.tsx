@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../pages/_app";
-
+import { Markup } from "interweave";
 interface Props {
 	currentPostId: string;
 }
@@ -12,14 +12,14 @@ const PostContent = ({ currentPostId }: Props) => {
 	console.log("current post", post);
 
 	return (
-		<>
+		<div>
 			{post ? (
 				<>
 					<h1>{post.title}</h1>
-					<td dangerouslySetInnerHTML={{ __html: post.content }} />
+					<Markup content={post.content} />
 				</>
 			) : null}
-		</>
+		</div>
 	);
 };
 

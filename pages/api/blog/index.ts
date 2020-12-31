@@ -11,9 +11,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			try {
 				console.log("success");
 
-				const post = await Post.find({});
+				const posts = await Post.find({});
 
-				res.json({ post });
+				res.json({ posts });
 			} catch (error) {
 				console.log("get error");
 

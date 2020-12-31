@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // return Object  type from mongoose
 interface Post {
 	_id: string;
+	title: string;
 	tags: string[];
 	createAt: Date;
 	content: string;

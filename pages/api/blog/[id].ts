@@ -1,33 +1,35 @@
 import dbConnect from "../../../db/dbConnect";
-import type { NextApiRequest, NextApiResponse } from "next";
 import Post from "../../../model/Post";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-	const { method } = req;
+	const {
+		method,
+		query: { id },
+	} = req;
 
 	await dbConnect();
+
 	switch (method) {
-		case "GET":
+		case "DELETE":
 			try {
-				console.log("success");
+				await Post.findByIdAndDelete({ _id: id });
 
-				const post = await Post.find({});
-
-				res.json({ post });
+				res.json({ success: true });
 			} catch (error) {
-				console.log("get error");
-
 				res.json({ error });
 			}
 			break;
-		case "POST":
+		case "PATCH":
 			try {
 				const content = req.body;
-				const newPost = new Post(content);
-				await newPost.save();
-				console.log(newPost);
+				const updatedPost = await Post.findOneAndUpdate(
+					{ _id: id },
+					content,
+					{ new: true }
+				);
 
-				res.json({ post: newPost });
+				res.json({ post: updatedPost });
 			} catch (error) {
 				res.json({ error });
 			}

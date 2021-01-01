@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../pages/_app";
 import { fetchAllPost } from "../../features/post/AsyncActions";
+import styles from "../../styles/post/postCard.module.css";
+import dayjs from "dayjs";
 import axios from "axios";
 import useSWR from "swr";
 
@@ -10,6 +12,13 @@ interface Props {
 }
 const url = "http://localhost:3000/api/blog";
 const fetcher = (url) => axios.get(url).then((res) => res.data.posts);
+
+const smallContent = (content: string) => {
+	const start = content.search("<p>");
+	const end = content.search("</p>");
+	return content.substr(start + 3, end - 3);
+};
+const tagColor = ["#62d2a2", "#f73859", "#b61aae", "#5e63b6"];
 
 const Posts = ({ setCurrentPostId }: Props) => {
 	const dispatch = useAppDispatch();
@@ -22,14 +31,36 @@ const Posts = ({ setCurrentPostId }: Props) => {
 	}, [data]);
 
 	return (
-		<div>
-			<h1>Posts</h1>
+		<div className={styles.postContainer}>
+			{/* <h1>Posts</h1> */}
 			{posts.map((post) => (
 				<button
 					key={post._id}
 					onClick={() => setCurrentPostId(post._id)}
+					className={styles.postCard}
 				>
-					{post.title}
+					<div className={styles.cardHeader}>
+						<h3>{post.title}</h3>
+						<p> {dayjs(post.createAt).format("DD MMMM YYYY")}</p>
+					</div>
+					<p className={styles.content}>
+						{smallContent(post.content)}
+					</p>
+					<div className={styles.tags}>
+						{post.tags.map((tag, index) => {
+							return (
+								<p
+									key={index}
+									className={styles.tag}
+									style={{
+										backgroundColor: tagColor[index],
+									}}
+								>
+									{tag}
+								</p>
+							);
+						})}
+					</div>
 				</button>
 			))}
 		</div>

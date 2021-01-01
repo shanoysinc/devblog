@@ -8,13 +8,13 @@ export default function Home() {
 	const [currentPostId, setCurrentPostId] = useState(null);
 
 	return (
-		<div>
+		<>
 			<NavBar />
 			<div className={styles.container}>
-				<Panel />
+				{/* <Panel /> */}
 				<Posts setCurrentPostId={setCurrentPostId} />
 				<PostContent currentPostId={currentPostId} />
 			</div>
-		</div>
+		</>
 	);
 }

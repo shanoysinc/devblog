@@ -1,0 +1,55 @@
+.postContainer {
+}
+.postCard {
+	width: 100%;
+	background-color: hsl(0, 0%, 98%);
+	border: 0;
+	outline: none;
+	cursor: pointer;
+	padding: 0 1em;
+}
+
+.postCard + .postCard {
+	margin-top: 1em;
+}
+
+.cardHeader {
+	padding: 0 1em;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+.cardHeader > h3 {
+	color: hsl(0, 0%, 25%);
+	text-transform: capitalize;
+	text-align: start;
+}
+
+.cardHeader > p {
+	color: hsl(0, 0%, 50%);
+}
+
+.content {
+	padding: 0 1em;
+
+	margin-top: -0.5em;
+	color: hsl(0, 0%, 70%);
+	font-size: 0.9rem;
+	text-align: start;
+	line-height: 1.5;
+}
+
+.tags {
+	padding: 0 1em;
+	display: flex;
+}
+.tag {
+	padding: 0.3em 1em;
+	color: white;
+	text-transform: capitalize;
+}
+
+.tag + .tag {
+	margin-left: 0.5em;
+}

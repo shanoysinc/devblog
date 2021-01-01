@@ -8,10 +8,50 @@
 }
 
 .createBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 80%;
+	height: 45px;
 	font-size: 1.2rem;
-	padding: 0.5em 0;
 	background-color: hsl(228, 100%, 62%);
 	color: white;
-	margin-bottom: 1em;
+	margin-bottom: 3em;
+}
+.createBtn > p {
+	padding-left: 0.2em;
+}
+
+.panelList {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 0.5em;
+}
+.panelItem {
+	border-left: 3px solid transparent;
+	display: flex;
+	padding: 1.5em 0;
+	background: none;
+	text-transform: capitalize;
+	font-size: 1rem;
+	padding-left: 2em;
+	align-items: flex-start;
+}
+
+.panelItem:hover {
+	background-color: hsl(228, 100%, 97%);
+	border-radius: 0;
+	color: hsl(228, 100%, 62%);
+	border-left-color: hsl(228, 100%, 62%);
+	border-left-width: 3px;
+	border-style: solid;
+}
+.panelItem > span {
+	margin-left: 1em;
+}
+
+.panelList > .panelItem + .panelItem {
+	/* margin-bottom: 3em; */
 }

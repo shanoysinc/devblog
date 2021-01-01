@@ -12,7 +12,7 @@
 }
 
 .postCard + .postCard {
-	margin-top: 1em;
+	margin-top: 1.5em;
 }
 
 .cardHeader {
@@ -49,9 +49,11 @@
 	flex-wrap: wrap;
 }
 .tag {
-	padding: 0.3em 1em;
+	padding: 0.2em 0.6em;
+
 	color: white;
 	text-transform: capitalize;
+	border-radius: 4px;
 }
 
 .tag + .tag {

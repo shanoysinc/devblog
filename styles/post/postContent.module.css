@@ -16,9 +16,10 @@
 	display: flex;
 }
 .tag {
-	padding: 0.3em 1em;
+	padding: 0.1em 0.5em;
 	color: white;
 	text-transform: capitalize;
+	border-radius: 4px;
 }
 
 .tag + .tag {

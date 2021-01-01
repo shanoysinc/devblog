@@ -1,0 +1,26 @@
+.container {
+	margin: 2em;
+}
+
+.titleContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.titleContainer > h1 {
+	margin: 0;
+	text-transform: capitalize;
+}
+
+.tags {
+	display: flex;
+}
+.tag {
+	padding: 0.3em 1em;
+	color: white;
+	text-transform: capitalize;
+}
+
+.tag + .tag {
+	margin-left: 0.5em;
+}

@@ -1,5 +1,53 @@
 .container {
 	/* display: grid;
 	grid-template-columns: repeat(3, 1fr); */
-	margin: 2em;
+	margin: 2em 2em 0 0;
+}
+
+@media screen and (min-width: 1020px) {
+	.container {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		gap: 1em;
+	}
+	.panelContainer {
+		margin-top: -2em;
+	}
+
+	.postContainer,
+	.contentContainer {
+		height: 83vh;
+		overflow-y: auto;
+	}
+	.panelContainer {
+		grid-column: 1 / span 2;
+		background-color: hsl(0, 0%, 98%);
+	}
+	.postContainer {
+		grid-column: 3 / span 4;
+		padding-right: 0.5em;
+	}
+	.contentContainer {
+		grid-column: 7 / span 12;
+		background-color: hsl(0, 0%, 98%);
+	}
+
+	.postContainer::-webkit-scrollbar,
+	.contentContainer::-webkit-scrollbar,
+	.panelContainer::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	.postContainer::-webkit-scrollbar-track,
+	.contentContainer::-webkit-scrollbar-track,
+	.panelContainer::-webkit-scrollbar-track {
+		background: hsl(0, 0%, 85%);
+	}
+	.postContainer::-webkit-scrollbar-thumb,
+	.contentContainer::-webkit-scrollbar-thumb,
+	.panelContainer::-webkit-scrollbar-thumb {
+		background-color: hsl(0, 1%, 77%);
+		border-radius: 6px;
+		border: 3px solid hsl(0, 1%, 8=77%);
+	}
 }

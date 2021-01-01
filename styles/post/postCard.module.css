@@ -7,6 +7,8 @@
 	outline: none;
 	cursor: pointer;
 	padding: 0 1em;
+	box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+		0 15px 40px rgba(166, 173, 201, 0.2);
 }
 
 .postCard + .postCard {
@@ -17,6 +19,7 @@
 	padding: 0 1em;
 
 	display: flex;
+
 	justify-content: space-between;
 	align-items: baseline;
 }
@@ -43,6 +46,7 @@
 .tags {
 	padding: 0 1em;
 	display: flex;
+	flex-wrap: wrap;
 }
 .tag {
 	padding: 0.3em 1em;

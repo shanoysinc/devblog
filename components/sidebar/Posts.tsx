@@ -16,9 +16,13 @@ const fetcher = (url) => axios.get(url).then((res) => res.data.posts);
 const smallContent = (content: string) => {
 	const start = content.search("<p>");
 	const end = content.search("</p>");
+	if (start < 0) return "";
+	console.log(start, end);
+	console.log(content);
+
 	return content.substr(start + 3, end - 3);
 };
-const tagColor = ["#62d2a2", "#f73859", "#b61aae", "#5e63b6"];
+const tagColor = ["#3d64ff", "#fbc1bc", "#222831", "#6ef7c8"];
 
 const Posts = ({ setCurrentPostId }: Props) => {
 	const dispatch = useAppDispatch();
@@ -32,7 +36,6 @@ const Posts = ({ setCurrentPostId }: Props) => {
 
 	return (
 		<div className={styles.postContainer}>
-			{/* <h1>Posts</h1> */}
 			{posts.map((post) => (
 				<button
 					key={post._id}
@@ -43,9 +46,9 @@ const Posts = ({ setCurrentPostId }: Props) => {
 						<h3>{post.title}</h3>
 						<p> {dayjs(post.createAt).format("DD MMMM YYYY")}</p>
 					</div>
-					<p className={styles.content}>
+					{/* <p className={styles.content}>
 						{smallContent(post.content)}
-					</p>
+					</p> */}
 					<div className={styles.tags}>
 						{post.tags.map((tag, index) => {
 							return (

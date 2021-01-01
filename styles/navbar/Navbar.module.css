@@ -2,10 +2,26 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 0.4em 1em;
-	align-items: baseline;
+	align-items: center;
 	background-color: hsl(0, 0%, 98%);
 }
+.logo {
+	display: flex;
+	align-items: center;
+}
 
+.logo > h3 {
+	margin-left: 0.5em;
+}
+
+.centerNavItems > a {
+	font-weight: 600;
+	font-size: 0.9rem;
+}
+
+.centerNavItems > a + a {
+	margin-left: 2.5em;
+}
 .author {
 	display: flex;
 	align-items: center;

@@ -22,7 +22,7 @@ const smallContent = (content: string) => {
 
 	return content.substr(start + 3, end - 3);
 };
-const tagColor = ["#3d64ff", "#fbc1bc", "#222831", "#6ef7c8"];
+const tagColor = ["#43a1f9", "#fbc1bc", "#222831", "#6ef7c8"];
 
 const Posts = ({ setCurrentPostId }: Props) => {
 	const dispatch = useAppDispatch();

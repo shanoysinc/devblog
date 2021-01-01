@@ -6,7 +6,7 @@ import styles from "../../styles/post/postContent.module.css";
 interface Props {
 	currentPostId: string;
 }
-const tagColor = ["#3d64ff", "#fbc1bc", "#222831", "#6ef7c8"];
+const tagColor = ["#43a1f9", "#fbc1bc", "#222831", "#6ef7c8"];
 
 const PostContent = ({ currentPostId }: Props) => {
 	const post = useSelector((state: RootState) =>

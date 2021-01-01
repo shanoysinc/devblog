@@ -11,9 +11,16 @@ export default function Home() {
 		<>
 			<NavBar />
 			<div className={styles.container}>
-				{/* <Panel /> */}
-				<Posts setCurrentPostId={setCurrentPostId} />
-				<PostContent currentPostId={currentPostId} />
+				<div className={styles.panelContainer}>
+					<Panel />
+				</div>
+
+				<div className={styles.postContainer}>
+					<Posts setCurrentPostId={setCurrentPostId} />
+				</div>
+				<div className={styles.contentContainer}>
+					<PostContent currentPostId={currentPostId} />
+				</div>
 			</div>
 		</>
 	);

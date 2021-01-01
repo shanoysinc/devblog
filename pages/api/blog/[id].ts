@@ -17,7 +17,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 				res.json({ success: true });
 			} catch (error) {
-				res.json({ error });
+				res.status(400).json({ error });
 			}
 			break;
 		case "PATCH":
@@ -31,7 +31,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 				res.json({ post: updatedPost });
 			} catch (error) {
-				res.json({ error });
+				res.status(400).json({ error });
 			}
 			break;
 		default:

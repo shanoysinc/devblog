@@ -5,3 +5,27 @@
 	align-items: baseline;
 	background-color: hsl(0, 0%, 98%);
 }
+
+.author {
+	display: flex;
+	align-items: center;
+}
+
+.authorInfo {
+	margin-left: 0.5em;
+}
+.authorInfo > p {
+	font-size: 0.8rem;
+}
+.authorName {
+	font-weight: 600;
+}
+.authorEmail {
+	margin-top: -1em;
+}
+
+@media screen and (min-width: 1020px) {
+	.hamburgerIcon {
+		display: none;
+	}
+}

@@ -17,7 +17,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			} catch (error) {
 				console.log("get error");
 
-				res.json({ error });
+				res.status(400).json({ error });
 			}
 			break;
 		case "POST":
@@ -30,7 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 				res.json({ post: newPost });
 			} catch (error) {
-				res.json({ error });
+				res.status(400).json({ error });
 			}
 			break;
 

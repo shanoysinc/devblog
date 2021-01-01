@@ -4,7 +4,7 @@ body {
 	margin: 0;
 	font-family: "Open Sans";
 	background-color: hsl(47, 95%, 90%);
-	overflow-y: hidden;
+	/* overflow-y: hidden; */
 }
 
 a {

@@ -51,7 +51,3 @@
 .panelItem > span {
 	margin-left: 1em;
 }
-
-.panelList > .panelItem + .panelItem {
-	/* margin-bottom: 3em; */
-}

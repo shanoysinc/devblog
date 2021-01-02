@@ -20,11 +20,12 @@
 	}
 	.panelContainer {
 		margin-top: -2em;
+		border-right: 1px solid hsl(0, 1%, 85%);
 	}
 
 	.postContainer,
 	.contentContainer {
-		height: 83vh;
+		height: 80vh;
 		overflow-y: auto;
 	}
 	.panelContainer {
@@ -38,6 +39,7 @@
 	.contentContainer {
 		grid-column: 7 / span 12;
 		background-color: hsl(0, 0%, 98%);
+		border: 1px solid hsl(0, 1%, 85%);
 	}
 
 	.postContainer::-webkit-scrollbar,

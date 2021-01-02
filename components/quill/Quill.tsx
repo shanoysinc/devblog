@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import ReactQuill from "react-quill";
+import React, { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import { useAppDispatch } from "../../pages/_app";
 import { createPost } from "../../features/post/AsyncActions";
 import { useRouter } from "next/router";
+import ReactQuill from "react-quill";
+import styles from "../../styles/post/createPost.module.css";
+
 const Quill = () => {
 	const dispatch = useAppDispatch();
 	const router = useRouter();
@@ -22,8 +24,9 @@ const Quill = () => {
 	};
 
 	const modules = {
+		syntax: true,
 		toolbar: [
-			[{ header: [1, 2, 3, false] }],
+			[{ header: [2, 3, false] }],
 			["bold", "italic", "underline", "strike", "blockquote"],
 			[
 				{ list: "ordered" },
@@ -31,7 +34,7 @@ const Quill = () => {
 				{ indent: "-1" },
 				{ indent: "+1" },
 			],
-			["link", "image"],
+			["link", "image", "code-block"],
 			["clean"],
 		],
 	};
@@ -47,20 +50,25 @@ const Quill = () => {
 		"indent",
 		"link",
 		"image",
+		"code-block",
 	];
 
 	return (
 		<>
-			<input
-				type="text"
-				placeholder="Title"
-				onChange={(e) => setTitle(e.target.value)}
-			/>
-			<input
-				type="text"
-				placeholder="Tags....separate tags with a comma "
-				onChange={(e) => setTags(e.target.value)}
-			/>
+			<div className={styles.inputContainer}>
+				<input
+					type="text"
+					placeholder="Title"
+					onChange={(e) => setTitle(e.target.value)}
+					className={styles.inputTitle}
+				/>
+				<input
+					type="text"
+					placeholder="Tags....separate tags with a comma "
+					onChange={(e) => setTags(e.target.value)}
+					className={styles.inputTags}
+				/>
+			</div>
 
 			<ReactQuill
 				theme="snow"
@@ -70,7 +78,9 @@ const Quill = () => {
 				formats={formats}
 				modules={modules}
 			/>
-			<button onClick={CreatePostHandler}>Create</button>
+			<button onClick={CreatePostHandler} className={styles.createBtn}>
+				Create
+			</button>
 		</>
 	);
 };

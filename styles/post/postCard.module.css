@@ -1,14 +1,12 @@
-.postContainer {
-}
 .postCard {
+	border-radius: 0;
 	width: 100%;
 	background-color: hsl(0, 0%, 98%);
 	border: 0;
 	outline: none;
 	cursor: pointer;
-	padding: 0 1em;
-	box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-		0 15px 40px rgba(166, 173, 201, 0.2);
+	padding: 0;
+	border: 1px solid hsl(0, 1%, 85%);
 }
 
 .postCard + .postCard {
@@ -27,6 +25,8 @@
 	color: hsl(0, 0%, 25%);
 	text-transform: capitalize;
 	text-align: start;
+	/* margin-right: 1px; */
+	padding-left: 1px;
 }
 
 .cardHeader > p {

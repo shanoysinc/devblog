@@ -17,6 +17,8 @@
 }
 .tag {
 	padding: 0.1em 0.5em;
+	font-size: 0.75rem;
+
 	color: white;
 	text-transform: capitalize;
 	border-radius: 4px;

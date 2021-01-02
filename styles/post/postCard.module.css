@@ -1,12 +1,9 @@
 .postCard {
-	border-radius: 0;
 	width: 100%;
 	background-color: hsl(0, 0%, 98%);
-	border: 0;
-	outline: none;
-	cursor: pointer;
-	padding: 0;
 	border: 1px solid hsl(0, 1%, 85%);
+	padding: 0 1em;
+	position: relative;
 }
 
 .postCard + .postCard {
@@ -14,8 +11,6 @@
 }
 
 .cardHeader {
-	padding: 0 1em;
-
 	display: flex;
 
 	justify-content: space-between;
@@ -25,7 +20,7 @@
 	color: hsl(0, 0%, 25%);
 	text-transform: capitalize;
 	text-align: start;
-	/* margin-right: 1px; */
+	cursor: pointer;
 	padding-left: 1px;
 }
 
@@ -34,8 +29,6 @@
 }
 
 .content {
-	padding: 0 1em;
-
 	margin-top: -0.5em;
 	color: hsl(0, 0%, 70%);
 	font-size: 0.9rem;
@@ -43,14 +36,21 @@
 	line-height: 1.5;
 }
 
-.tags {
-	padding: 0 1em;
+.bottomItems {
 	display: flex;
-	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.options {
+	cursor: pointer;
+}
+.tags {
+	display: flex;
 }
 .tag {
 	padding: 0.2em 0.6em;
-
+	font-size: 0.75rem;
 	color: white;
 	text-transform: capitalize;
 	border-radius: 4px;
@@ -58,4 +58,26 @@
 
 .tag + .tag {
 	margin-left: 0.5em;
+}
+
+.optionsDropDownMenu {
+	background-color: white;
+	border: 1px solid hsl(0, 1%, 85%);
+	position: absolute;
+	border-radius: 4px;
+
+	bottom: 25px;
+	right: 10px;
+}
+
+.dropDownList {
+	display: none;
+	box-shadow: 2px 8px 22px -5px rgba(0, 0, 0, 0.5);
+}
+.dropDownList > div {
+	padding: 0.7em 1em;
+	font-size: 0.9rem;
+}
+.dropDownList > div:hover {
+	background-color: hsl(0, 1%, 97%);
 }

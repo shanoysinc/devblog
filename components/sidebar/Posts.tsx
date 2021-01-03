@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../pages/_app";
-import { fetchAllPost } from "../../features/post/AsyncActions";
+import { fetchAllPost, deletePost } from "../../features/post/AsyncActions";
 import styles from "../../styles/post/postCard.module.css";
 import OptionsICon from "../../public/svg/option.svg";
+import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import axios from "axios";
 import useSWR from "swr";
@@ -18,7 +19,7 @@ const tagColor = ["#43a1f9", "#fbc1bc", "#222831", "#6ef7c8"];
 
 const Posts = ({ setCurrentPostId }: Props) => {
 	const dispatch = useAppDispatch();
-	const optionsRef = useRef(null);
+	const router = useRouter();
 	const { data } = useSWR(url, fetcher);
 
 	const posts = useSelector((state: RootState) => state.posts);
@@ -26,6 +27,7 @@ const Posts = ({ setCurrentPostId }: Props) => {
 	useEffect(() => {
 		dispatch(fetchAllPost(data));
 	}, [data]);
+
 	const optionsVisibility = (postId) => {
 		const currentPost = document.getElementById(postId);
 		const isNotVisible = currentPost.style.display === "";
@@ -37,6 +39,14 @@ const Posts = ({ setCurrentPostId }: Props) => {
 			currentPost.style.display = "";
 		}
 	};
+
+	const deletePostHandler = (postId) => {
+		dispatch(deletePost(postId));
+	};
+	const editPostHandler = (postId) => {
+		router.push("/blog/createPost");
+	};
+
 	return (
 		<div className={styles.postContainer}>
 			{posts.map((post) => (
@@ -73,8 +83,14 @@ const Posts = ({ setCurrentPostId }: Props) => {
 						</div>
 						<div className={styles.optionsDropDownMenu}>
 							<div className={styles.dropDownList} id={post._id}>
-								<div>Edit Post</div>
-								<div>Delete Post</div>
+								<div onClick={() => editPostHandler(post._id)}>
+									Edit Post
+								</div>
+								<div
+									onClick={() => deletePostHandler(post._id)}
+								>
+									Delete Post
+								</div>
 							</div>
 						</div>
 					</div>

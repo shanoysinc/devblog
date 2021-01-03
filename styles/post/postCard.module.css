@@ -4,6 +4,9 @@
 	border: 1px solid hsl(0, 1%, 85%);
 	padding: 0 1em;
 	position: relative;
+	/* border-left: 4px solid; */
+	box-shadow: -11px -3px 26px -3px rgba(0, 0, 0, 0.29);
+	/* margin-top: 1.5em; */
 }
 
 .postCard + .postCard {
@@ -22,10 +25,12 @@
 	text-align: start;
 	cursor: pointer;
 	padding-left: 1px;
+	font-size: 1rem;
 }
 
 .cardHeader > p {
 	color: hsl(0, 0%, 50%);
+	font-size: 0.9rem;
 }
 
 .content {
@@ -65,18 +70,18 @@
 	border: 1px solid hsl(0, 1%, 85%);
 	position: absolute;
 	border-radius: 4px;
-
 	bottom: 25px;
 	right: 10px;
+	/* top: -10px; */
 }
 
 .dropDownList {
 	display: none;
-	box-shadow: 2px 8px 22px -5px rgba(0, 0, 0, 0.5);
 }
 .dropDownList > div {
-	padding: 0.7em 1em;
+	padding: 0.6em 1em;
 	font-size: 0.9rem;
+	cursor: pointer;
 }
 .dropDownList > div:hover {
 	background-color: hsl(0, 1%, 97%);

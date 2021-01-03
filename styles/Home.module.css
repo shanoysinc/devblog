@@ -1,5 +1,5 @@
 .container {
-	margin: 1em;
+	margin: 2em;
 }
 
 .panelContainer,
@@ -12,14 +12,14 @@
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
 		gap: 1em;
-		margin: 2em 2em 0 0;
+		margin: 1em 2em 0 0;
 	}
 	.panelContainer,
 	.contentContainer {
 		display: inherit;
 	}
 	.panelContainer {
-		margin-top: -2em;
+		margin-top: -1em;
 		border-right: 1px solid hsl(0, 1%, 85%);
 	}
 

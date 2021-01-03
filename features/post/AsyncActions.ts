@@ -1,4 +1,4 @@
-import { fetchPost, addPost } from "./postSlice";
+import { fetchPost, addPost, deleteSelectedPost } from "./postSlice";
 import * as postApi from "../../api/post";
 import { Post } from "../../shared/interfaces/Post";
 
@@ -7,8 +7,21 @@ export const fetchAllPost = (post) => async (dispatch) => {
 };
 
 export const createPost = (newPost: Post) => async (dispatch) => {
-	const { data } = await postApi.createPost(newPost);
-	console.log("created post", data.post);
+	try {
+		const { data } = await postApi.createPost(newPost);
 
-	return dispatch(addPost(data.post));
+		return dispatch(addPost(data.post));
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+export const deletePost = (postId) => async (dispatch) => {
+	try {
+		const { data } = await postApi.deletePost(postId);
+
+		return dispatch(deleteSelectedPost(postId));
+	} catch (err) {
+		console.log(err);
+	}
 };
